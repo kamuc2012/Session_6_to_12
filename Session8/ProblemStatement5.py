@@ -9,3 +9,41 @@ The cipher only encrypts alpha and numeric (A-Z, a-z, 0-9). All Symbols, such as
 The cipher text can have special characters. Use generator expression to filter out alpha and numeric characters of the input string and to generate cipher text. 
 Create an instance of this class, encrypt and decrypt back the user entered string.
 """
+import random
+
+class Cipher():
+    key = random.randint(1,51)
+
+    def __init__(self, text):
+        self.text = text
+        self.encrypted_text = ""
+
+    def encrypt(self):
+        result = ""
+        for i in range(len(self.text)):
+            char = self.text[i]
+            if (char.isupper()):
+                result += chr((ord(char) + Cipher.key - 65) % 26 + 65)
+            else:
+                result += chr((ord(char) + Cipher.key - 97) % 26 + 97)
+
+        self.encrypted_text = result
+        return self.encrypted_text
+
+    def decrypt(self):
+        result = ""
+        for i in range(len(self.encrypted_text)):
+            char = self.encrypted_text[i]
+            if (char.isupper()):
+                result += chr((ord(char) - Cipher.key - 65) % 26 + 65)
+            else:
+                result += chr((ord(char) - Cipher.key - 97) % 26 + 97)
+
+        return result
+
+text = input("Input any string: ")
+print("Text = ", text)
+
+c = Cipher(text)
+print("Encrypted = ", c.encrypt())
+print("Decrypted = ", c.decrypt())

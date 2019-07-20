@@ -22,3 +22,20 @@ Thus, the moving average sequence has n-k+1=10-4+1=7 values.
 
 Question: Write a function to find moving average in an array over a window: Test it over [3, 5, 7, 2, 8, 10, 11, 65, 72, 81, 99, 100, 150] and window of 3.
 """
+import numpy as np
+
+def moving_average(sequence, window_size):
+    ls = []
+    indices = np.fromfunction(lambda x:x, (window_size,), dtype=int)
+
+    for i in range(len(sequence) - window_size + 1):
+        ls.append(np.mean(np.take(sequence, indices + i)))
+    return ls
+
+sequence = [3, 5, 7, 2, 8, 10, 11, 65, 72, 81, 99, 100, 150]
+window_size = 3
+ma_sequence = moving_average(sequence, window_size)
+
+print("Input: ", sequence)
+print("Window Size (k): ", window_size)
+print("Moving Average: ", ma_sequence)
