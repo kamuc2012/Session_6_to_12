@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 titanic = pd.read_csv("https://raw.githubusercontent.com/Geoyi/Cleaning-Titanic-Data/master/titanic_original.csv")
 print(titanic.head())
-print("="*50)
+print("\n", "="*50, "\n", sep="")
 
 '''
 1. Create a pie chart presenting the male/female proportion
@@ -35,12 +35,14 @@ plt.show()
 '''
 2. Create a scatterplot with the Fare paid and the Age, differ the plot color by gender
 '''
+print("\nBefore cleaning data\n")
 print(titanic.isnull().sum())
 
 titanic["sex"].fillna(method="ffill", inplace=True)
 titanic["age"].fillna(method="ffill", inplace=True)
 titanic["fare"].fillna(method="ffill", inplace=True)
 
+print("\nAfter cleaning data\n")
 print(titanic.isnull().sum())
 
 fig = plt.figure(figsize=(18,6))
