@@ -35,6 +35,7 @@ engine.execute(query1)
 
 query2 = "UPDATE adult_data_new SET income = '>=100K' WHERE age >= 50"
 engine.execute(query2)
+print("\n", "="*50, "\n", sep="")
 
 '''
 3. Write two delete queries
@@ -44,6 +45,7 @@ engine.execute(query3)
 
 query4 = "DELETE FROM adult_data_new WHERE education = '9th'"
 engine.execute(query4)
+print("\n", "="*50, "\n", sep="")
 
 '''
 4. Write two filter queries
@@ -53,6 +55,7 @@ print(engine.execute(query5).fetchall())
 
 query6 = "SELECT * FROM adult_data_new WHERE education = 'Masters' AND workclass = 'Private'"
 print(engine.execute(query6).fetchall())
+print("\n", "="*50, "\n", sep="")
 
 '''
 5. Write two function queries
@@ -62,3 +65,4 @@ print(engine.execute(query7).fetchone())
 
 query8 = "SELECT COUNT(age) FROM adult_data_new WHERE education = 'Masters' AND workclass = 'Private'"
 print(engine.execute(query8).fetchone())
+print("\n", "="*50, "\n", sep="")
