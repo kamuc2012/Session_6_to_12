@@ -42,7 +42,7 @@ class Cipher():
         return result
 
 text = input("Input any string: ")
-print("Text = ", text)
+print("\nText = ", text)
 
 c = Cipher(text)
 print("Encrypted = ", c.encrypt())
