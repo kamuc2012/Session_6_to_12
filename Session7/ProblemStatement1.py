@@ -35,9 +35,9 @@ for i in range(len(df.X)):
     Y.append(index)
 
 df["Y"] = Y
-print("count-distance-to-the-previous-zero")
+print("count-distance-to-the-previous-zero\n")
 print(df)
-print("="*50)
+print("\n", "="*50, "\n", sep="")
 
 '''
 2) Create a DatetimeIndex that contains each business day of 2015 and use it to index a Series of random numbers.
@@ -46,29 +46,29 @@ import numpy as np
 
 dates = pd.date_range(start="2015-01-01", end="2015-12-31", freq="B") 
 s = pd.Series(np.random.rand(len(dates)), index=dates)
-print("DatetimeIndex that contains each business day of 2015 and use it to index a Series of random numbers")
+print("DatetimeIndex that contains each business day of 2015 and use it to index a Series of random numbers\n")
 print(s)
-print("="*50)
+print("\n", "="*50, "\n", sep="")
 
 '''
 3) Find the sum of the values in s for every Wednesday
 '''
-print("Find the sum of the values in s for every Wednesday")
+print("Find the sum of the values in s for every Wednesday\n")
 print(s[dates.weekday == 2].sum())
-print("="*50)
+print("\n", "="*50, "\n", sep="")
 
 '''
 4) Average For each calendar month
 '''
-print("Average For each calendar month")
+print("Average For each calendar month\n")
 print(s.resample("M").mean())
-print("="*50)
+print("\n", "="*50, "\n", sep="")
 
 '''
 5) For each group of four consecutive calendar months in s, find the date on which the highest value occurred.
 '''
-print("Group of four consecutive calendar months in s, find the date on which the highest value occurred")
+print("Group of four consecutive calendar months in s, find the date on which the highest value occurred\n")
 print("Jan-Apr = ", s["2015-01-01":"2015-04-30"].idxmax())
 print("May-Aug = ", s["2015-05-01":"2015-08-31"].idxmax())
 print("Sep-Dec = ", s["2015-09-01":"2015-12-31"].idxmax())
-print("="*50)
+print("\n", "="*50, "\n", sep="")
